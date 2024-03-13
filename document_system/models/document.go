@@ -37,13 +37,12 @@ func (d *Document) Save() {
 		// Checks if the file is changed or updated
 		if d.File != oldDoc.File {
 			docChange = true
+		} else {
+			// New document record
+			docChange = true
+			newDoc = true
 		}
-	} else {
-		// New document record
-		docChange = true
-		newDoc = true
 	}
-
 	// Save the Document
 	uadmin.Save(d)
 
@@ -62,17 +61,16 @@ func (d *Document) Save() {
 
 		// Save the document version
 		uadmin.Save(&ver)
-	}
 
-	creator := DocumentUser{
-		UserID:     user.ID,
-		DocumentID: d.ID,
-		Read:       true,
-		Edit:       true,
-		Add:        true,
-		Delete:     true,
+		creator := DocumentUser{
+			UserID:     user.ID,
+			DocumentID: d.ID,
+			Read:       true,
+			Edit:       true,
+			Add:        true,
+			Delete:     true,
+		}
+		// Save the document user
+		uadmin.Save(&creator)
 	}
-
-	// Save the document user
-	uadmin.Save(&creator)
 }
