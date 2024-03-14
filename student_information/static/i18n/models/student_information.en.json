@@ -22,6 +22,13 @@
       "err_msg": {},
       "Choices": {}
     },
+    "CreatedAt": {
+      "display_name": "Created At",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
     "DateOfBirth": {
       "display_name": "Date Of Birth",
       "help": "",
@@ -100,7 +107,14 @@
       "Choices": {}
     },
     "Student_ID": {
-      "display_name": "Student _ ID",
+      "display_name": "Student ID",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
+    "Student_Number": {
+      "display_name": "Student _ Number",
       "help": "",
       "pattern_msg": "",
       "err_msg": {},

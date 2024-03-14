@@ -9,5 +9,4 @@ type Guardian struct {
 	Name    string `uadmin:"required;search"`
 	Address string
 	Phone   string
-	Email   string `uadmin:"email"`
 }

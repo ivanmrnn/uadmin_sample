@@ -1,6 +1,20 @@
 {
   "display_name": "School",
   "fields": {
+    "Code": {
+      "display_name": "Code",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
+    "Display_Name": {
+      "display_name": "Display _ Name",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
     "ID": {
       "display_name": "ID",
       "help": "",
@@ -24,6 +38,13 @@
     },
     "Name": {
       "display_name": "Name",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
+    "SchoolCode": {
+      "display_name": "School Code",
       "help": "",
       "pattern_msg": "",
       "err_msg": {},
