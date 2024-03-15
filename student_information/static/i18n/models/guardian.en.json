@@ -8,6 +8,13 @@
       "err_msg": {},
       "Choices": {}
     },
+    "Code": {
+      "display_name": "Code",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
     "Email": {
       "display_name": "Email",
       "help": "",

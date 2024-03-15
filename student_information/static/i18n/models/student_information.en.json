@@ -99,6 +99,20 @@
       "err_msg": {},
       "Choices": {}
     },
+    "SchoolLink": {
+      "display_name": "School Link",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
+    "SchoolName": {
+      "display_name": "School Name",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
     "StudentID": {
       "display_name": "Student ID",
       "help": "",
@@ -122,6 +136,20 @@
     },
     "Student_number": {
       "display_name": "Student ID",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
+    "Test": {
+      "display_name": "Test",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
+    "TestSchool": {
+      "display_name": "Test School",
       "help": "",
       "pattern_msg": "",
       "err_msg": {},
