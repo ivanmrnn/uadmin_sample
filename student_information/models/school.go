@@ -8,6 +8,7 @@ type School struct {
 	uadmin.Model
 	Name        string
 	SchoolCode  uint
+	Format      string
 	Icon        string `uadmin:"image"`
 	Website     string `uadmin:"link"`
 	WebsiteLink string `uadmin:"list_exclude"`

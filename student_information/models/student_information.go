@@ -9,7 +9,6 @@ import (
 
 type Student_Information struct {
 	uadmin.Model
-	Student_Number uint
 	Name           string `uadmin:"required;search;display_name:Student Name"`
 	Student_ID     string `uadmin:"search;display_name:Student ID"`
 	IdPicture      string `uadmin:"image"`
@@ -31,13 +30,13 @@ func (s *Student_Information) Save() {
  	
 	uadmin.Preload(s)
 	code := s.Course.CourseCode
-	s.Student_ID = generateStudentNumber(currentYear, code, s.Student_Number+1)
+	s.Student_ID = generateStudentNumber(currentYear, code )
 	uadmin.Save(s)
 	//uadmin.Trail(uadmin.DEBUG,s.Test)
 }
 
-func generateStudentNumber(year int, code, studentID uint) string {
-	return fmt.Sprintf("%d-%v%05d", year%100, code, studentID)
+func generateStudentNumber(year int, code uint) string {
+	return fmt.Sprintf("%d-%vd", year%100, code)
 }
 
 /*func generateBSU(year int, studentID uint) string {

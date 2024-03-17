@@ -10,6 +10,7 @@ func main() {
 		models.Student_Information{},
 		models.School{},
 		models.Course{},
+		models.IDFormat{},
 	)
 	uadmin.RegisterInlines(models.School{}, map[string]string{
 		"Student_Information": "SchoolID",
