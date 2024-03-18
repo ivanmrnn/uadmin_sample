@@ -70,7 +70,6 @@ func processFormatCharacters(characters []string, formatting string) string {
 			formatted += strings.Repeat(characters[0], count)
 			characters = characters[count:]
 		default:
-			formatted = "YY RRRRR"
 			characters = []string{}
 		}
 	}

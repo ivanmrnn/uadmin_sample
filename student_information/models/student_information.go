@@ -16,7 +16,7 @@ type Student_Information struct {
 	Student_ID   string `uadmin:"search;display_name:Student ID;read_only"`
 	IdPicture    string `uadmin:"image"`
 	DateOfBirth  time.Time 
-	Age          uint   `uadmin:"default_value: ;min:2;max:120"`
+	Age          int   `uadmin:"read_only"`
 	Address      string
 	Phone        string
 	Email        string `uadmin:"email"`
@@ -41,6 +41,7 @@ func (s Student_Information) Validate() (errMsg map[string]string) {
 }
 
 func (s *Student_Information) Save() {
+	s.Age = ageCalculator(s.DateOfBirth)
 	uadmin.Preload(s)
 	s.SchoolName = s.School.Name
 	formatting := s.School.Format
@@ -60,23 +61,8 @@ func (s *Student_Information) Save() {
 		generated := processSchoolFormat(characters , formatting, currentYear, courseCode, schoolCode, recentCount)
 		
 		s.Student_ID = generated
-	} /*else {
-		existingStudent := Student_Information{}
-        if uadmin.Find(&existingStudent, "student_id = ?", studentID).Error == nil {
-            s.Student_ID = existingStudent.Student_ID
-        }
-	}*/
+	} 
 	uadmin.Save(s)
-}
-
-func generateRandomNumber(year int) string {
-	randomNum := rand.Intn(99999)
-	return fmt.Sprintf("%v %v", year, randomNum)
-}
-
-func generateStudentNumber(count int, id int) string {
-	generateFormat := fmt.Sprintf("%%0%dd", count)
-	return fmt.Sprintf(generateFormat, id)
 }
 
 func processSchoolFormat(characters []string, formatting string, currentYear int, courseCode uint, schoolCode uint, recentCount int) string {
@@ -152,4 +138,21 @@ func processSchoolFormat(characters []string, formatting string, currentYear int
 	return generated
 }
 
+func generateRandomNumber(year int) string {
+	randomNum := rand.Intn(99999)
+	return fmt.Sprintf("%v %v", year, randomNum)
+}
 
+func generateStudentNumber(count int, id int) string {
+	generateFormat := fmt.Sprintf("%%0%dd", count)
+	return fmt.Sprintf(generateFormat, id)
+}
+
+func ageCalculator (birthday time.Time) int {
+	currentDate := time.Now()
+	age := currentDate.Year() - birthday.Year()
+	if currentDate.YearDay() <birthday.YearDay(){
+		age--
+	}
+	return age
+}
