@@ -8,21 +8,27 @@ import (
 
 type IDFormat struct {
 	uadmin.Model
-	Name   string
-	Format string `uadmin:"pattern:^[c,C,n,N,r,R,s,S,y,Y,-, ]*$;pattern_msg:Invalid Format"`
+	Name   string `uadmin:"hidden"`
+	Format string `uadmin:"pattern:^[c,C,n,N,r,R,s,S,y,Y, ]*$;pattern_msg:Invalid Format;required;help:Format: YY or YYYY for year, CC for Course Code, SS for School Code, R for random number, N for student number. Must atleast have NNN"`
 }
 
 func (f *IDFormat) Save() {
 	formatting := strings.ToUpper(f.Format)
 
 	hasNNN := strings.Contains(formatting, "NNN")
-	hasRRR := strings.Contains(formatting, "RRR")
-	if !hasNNN && !hasRRR {
-		formatting = "YY-RRRRR"
+	if !hasNNN {
+		formatting = "YY NNNNN"
 	}
 
-	formatted := ""
 	characters := []string{}
+	formatted := processFormatCharacters(characters , formatting)	
+	f.Format = formatted
+	f.Name = f.Format
+	uadmin.Save(f)
+}
+
+func processFormatCharacters(characters []string, formatting string) string {
+	formatted := ""
 	for i := 0; i < len(formatting); i++ {
 		characters = append(characters, string(formatting[i]))
 	}
@@ -40,7 +46,6 @@ func (f *IDFormat) Save() {
 				formatted += "YY"
 				characters = characters[2:]
 			default:
-				formatted += "Y"
 				characters = characters[1:]
 			}
 		case "C":
@@ -48,7 +53,6 @@ func (f *IDFormat) Save() {
 				formatted += "CC"
 				characters = characters[2:]
 			} else {
-				formatted += "C"
 				characters = characters[1:]
 			}
 		case "S":
@@ -56,10 +60,9 @@ func (f *IDFormat) Save() {
 				formatted += "SS"
 				characters = characters[2:]
 			} else {
-				formatted += "S"
 				characters = characters[1:]
 			}
-		case "R", "N", "-", " ":
+		case "R", "N", " ":
 			count := 1
 			for count < len(characters) && characters[count] == characters[0] {
 				count++
@@ -67,10 +70,9 @@ func (f *IDFormat) Save() {
 			formatted += strings.Repeat(characters[0], count)
 			characters = characters[count:]
 		default:
-			formatted = "YY-RRRRR"
+			formatted = "YY RRRRR"
 			characters = []string{}
 		}
 	}
-	f.Format = formatted
-	uadmin.Save(f)
+	return formatted
 }

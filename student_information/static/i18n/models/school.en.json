@@ -29,6 +29,13 @@
       "err_msg": {},
       "Choices": {}
     },
+    "IDFormat": {
+      "display_name": "ID Format",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
     "Icon": {
       "display_name": "Icon",
       "help": "",

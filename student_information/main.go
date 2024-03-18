@@ -18,5 +18,8 @@ func main() {
 	uadmin.RegisterInlines(models.Course{}, map[string]string{
 		"Student_Information": "CourseID",
 	})
+	uadmin.RegisterInlines(models.IDFormat{}, map[string]string{
+		"Student_Information": "IDFormatID",
+	})
 	uadmin.StartServer()
 }

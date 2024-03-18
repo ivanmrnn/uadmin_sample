@@ -3,7 +3,7 @@
   "fields": {
     "Format": {
       "display_name": "Format",
-      "help": "",
+      "help": "Format: YY or YYYY for year, CC for Course Code, SS for School Code, R for random number, N for student number. Must atleast have NNN",
       "pattern_msg": "Invalid Format",
       "err_msg": {},
       "Choices": {}
