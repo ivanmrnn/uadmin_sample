@@ -14,15 +14,18 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 	r.URL.Path = strings.TrimSuffix(r.URL.Path, "/")
 	// Authentication : This session is preloaded with a user.
 	session := uadmin.IsAuthenticated(r)
+	
 	if session == nil {
 		// LoginHandler verifies login data and creating sessions for users.
 		LoginHandler(w, r)
+		
 		return
 	}
 
 	if r.URL.Path == "" {
 		// HomeHandler handles the home page.
 		HomeHandler(w, r, session)
+		
 		return
 
 	} else if r.URL.Path == "/logout" {
@@ -31,6 +34,9 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 
 		// LogoutHandler handles the logout process for the user.
 		LogoutHandler(w, r, session)
+		return
+	} else if r.URL.Path == "/test" {
+		TestHandler(w, r, session)
 		return
 	}
 	return

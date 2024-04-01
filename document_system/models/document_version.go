@@ -7,15 +7,14 @@ import (
 	"github.com/uadmin/uadmin"
 )
 
-// DocumentVersion !
 type DocumentVersion struct {
 	uadmin.Model
-	Document   Document
+	Document Document
 	DocumentID uint
-	File       string `uadmin:"file"`
-	Number     int    `uadmin:"help:version number"`
-	Date       time.Time
-	Format     Format
+	File string `uadmin:"file"`
+	Number int `uadmin:"help:version number"`
+	Date time.Time
+	Format Format
 }
 
 // Returns the version number

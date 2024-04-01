@@ -21,6 +21,8 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request, session *uadmin.Sessi
         }
 
         http.SetCookie(w, c)
+        
     }
     http.Redirect(w, r, "/login_system/", http.StatusSeeOther)
+    
 }

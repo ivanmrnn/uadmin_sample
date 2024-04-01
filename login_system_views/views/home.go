@@ -28,4 +28,5 @@ func HomeHandler(w http.ResponseWriter, r *http.Request, session *uadmin.Session
 	// Render the home filepath and pass the context data object to the HTML file.
 	uadmin.RenderHTML(w, r, "templates/home.html", c)
 	return
+	
 }

@@ -15,6 +15,7 @@ func main() {
 	uadmin.SiteName = "Login System"
 
 	http.HandleFunc("/login_system/", uadmin.Handler(views.MainHandler))
+	
 
 	// Run the server
 	uadmin.StartServer()
