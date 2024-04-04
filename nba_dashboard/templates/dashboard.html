@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <link href="/static/css/dashboardstyles.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="mySidenav" class="sidenav">
+        
+        <div class="menu">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="title_section">
+                <div class="title">
+                    <div class="title_div">
+                        <div class="logo">
+                            <image src="/nbalogo.png" class="website_logo_img"></image>
+                        </div>
+                        <div class="logo_title">
+                            <h1>NBA</h1>
+                        </div>
+                    </div>
+                    <div class="title_div"><h2>Players Dashboard</h2></div>
+                </div>
+            </div>
+            <div class="division_section">
+                <div class="division_list_container">
+                    <div class="division_list">
+                        <div class="division_column">
+                            <div class="division_column_conference"><h3>Eastern</h3></div>
+                            <div class="division">
+                                <button class="division_button"><h3>Atlantic</h3></button>
+                            </div>
+                            <div class="division">
+                                <button class="division_button"><h3>Central</h3></button>
+                            </div>
+                            <div class="division">
+                                <button class="division_button"><h3>South</h3></button>
+                            </div>
+                        </div>
+                        <div class="division_column">
+                            <div class="division_column_conference"><h3>Western</h3></div>
+                            <div class="division">
+                                <button class="division_button"><h3>North West</h3></button>
+                            </div>
+                            <div class="division">
+                                <button class="division_button"><h3>Pacific</h3></button>
+                            </div>
+                            <div class="division">
+                                <button class="division_button"><h3>South West</h3></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="all_container">
+                        <div class="division_wide">
+                            <button class="division_button"><h3>ALL</h3></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="team_list_container">
+                    <div class="team_search_container">search</div>
+                    <div class="team_list">teams</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="dashboard">
+        <div class="nav_bar">
+            <div class="nav_left">
+                <div class="menu_button">
+                    <button onclick="openNav()">Open Side Nav</button>
+                </div>
+                <div class="dashboard_text"><h2>text</h2></div>
+            </div>
+            
+            <div class="profile">
+                <div class="profile_photo">profile</div>
+                <div class="username"><h3>{{.User}}</h3></div>
+                <div class="logout_button_container">
+                    <a href="/nba_dashboard/logout" type="button">
+                        <button>Logout</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="filter_bar">
+            <div class="filter_button_container">
+                    <div class="filter_title">filter</div>
+                    <div class="filter_button">filter</div>
+            </div>
+            <div class="search_bar_container">
+                <div class="search_bar">search</div>
+            </div>
+            
+            
+        </div>
+        <div class="card_list_container"></div>
+    </div>
+    
+  </body>
+  <script src="/static/js/dashboard.js"></script>
+</html>

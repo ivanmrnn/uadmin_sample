@@ -39,13 +39,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 			c.Err = "Invalid username/password or inactive user"
 
 		} else {
-			// If the user has OTPRequired enabled, it will print the username and OTP in the terminal.
-			if session.PendingOTP {
-				uadmin.Trail(uadmin.INFO, "User: %s OTP: %s", session.User.Username, session.User.GetOTP())
-			}
-
-			/* As long as the username and password is valid, it will create a session cookie in the
-			   browser. */
+			
 			cookie, _ := r.Cookie("session")
 			if cookie == nil {
 				cookie = &http.Cookie{}
@@ -56,26 +50,16 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 			cookie.SameSite = http.SameSiteStrictMode
 			http.SetCookie(w, cookie)
 
-			// Check for OTP
-			if session.PendingOTP {
-				/* After the user enters a valid username and password in the first part of the form, these
-				   values will be used on the second part in the UI where the OTP input field will be
-				   displayed afterwards. */
-				c.Username = username
-				c.Password = password
-				c.OTPRequired = true
+			http.Redirect(w, r, "/nba_dashboard/", http.StatusSeeOther)
 
-			} else {
-				// If the next value is empty, redirect the page that omits the logout keyword in the last part.
-				if r.URL.Query().Get("next") == "" {
-					http.Redirect(w, r, strings.TrimSuffix(r.RequestURI, "logout"), http.StatusSeeOther)
-					return
-				}
+			// if r.URL.Query().Get("next") == "" {
+			// 	http.Redirect(w, r, strings.TrimSuffix(r.RequestURI, "logout"), http.StatusSeeOther)
+			// 	return
+			// }
 
-				// Redirect to the page depending on the value of the next.
-				http.Redirect(w, r, r.URL.Query().Get("next"), http.StatusSeeOther)
-				return
-			}
+			// // Redirect to the page depending on the value of the next.
+			// http.Redirect(w, r, r.URL.Query().Get("next"), http.StatusSeeOther)
+			// return
 		}
 	}
 
