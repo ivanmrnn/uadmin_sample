@@ -9,7 +9,6 @@
   </head>
   <body>
     <div id="mySidenav" class="sidenav">
-        
         <div class="menu">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <div class="title_section">
@@ -60,8 +59,25 @@
                     </div>
                 </div>
                 <div class="team_list_container">
-                    <div class="team_search_container">search</div>
-                    <div class="team_list">teams</div>
+                    <input type="text" name="team_search" class="team_search_bar uppercase" placeholder="SEARCH">
+                    <div class="team_list">
+                        <ul id="team_container" class="team_container">
+                            <li class="team_item">
+                                <button class="team_item_button bolder">
+                                    <image src="lakerslogo.png" class="team_list_logo"></image>
+                                    <h4>LOS ANGELES LAKERS</h4>
+                                </button>
+                            </li>
+                            <li class="team_item">
+                                <button class="team_item_button bolder">
+                                    <image src="lakerslogo.png" class="team_list_logo"></image>
+                                    <h4>LOS ANGELES LAKERS</h4>
+                                </button>
+                            </li>
+                            <li class="team_item">Item 2</li>
+                            <li class="team_item">Item 3</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -70,36 +86,142 @@
     <div class="dashboard">
         <div class="nav_bar">
             <div class="nav_left">
-                <div class="menu_button">
-                    <button onclick="openNav()">Open Side Nav</button>
+                <div class="menu_button_container">
+                    <button onclick="openNav()" class="menu_button">
+                        <div class="menu_block"></div>
+                        <div class="menu_block"></div>
+                        <div class="menu_block"></div>
+                    </button>
                 </div>
-                <div class="dashboard_text"><h2>text</h2></div>
+                <div class="dashboard_text"><h2>Los Angeles Lakers</h2></div>
             </div>
             
             <div class="profile">
-                <div class="profile_photo">profile</div>
-                <div class="username"><h3>{{.User}}</h3></div>
+                <div class="username"><h2>{{.User}}</h2></div>
+                <div class="profile_photo_container">
+                    <image class="profile_photo" src="lebron.png"></image>
+                </div>
                 <div class="logout_button_container">
                     <a href="/nba_dashboard/logout" type="button">
-                        <button>Logout</button>
+                        <button class="logout_button" >
+                            <image src="logout.png" class="logout_button_img"></image>
+                        </button>
                     </a>
                 </div>
             </div>
         </div>
         <div class="filter_bar">
-            <div class="filter_button_container">
-                    <div class="filter_title">filter</div>
-                    <div class="filter_button">filter</div>
+            <div class="filter_dropdown_container">
+                    <div class="filter_title bolder uppercase">FILTER</div>
+                    <div class="filter_dropdown">
+                        <div class="dropdown">
+                            <button onclick="filter_dropdownFunction()" class="dropdown_button">Dropdown</button>
+                            <div id="dropdown_content" class="dropdown_content">
+                              <a href="#">Link 1</a>
+                              <a href="#">Link 2</a>
+                              <a href="#">Link 3</a>
+                            </div>
+                          </div>
+                    </div>
             </div>
-            <div class="search_bar_container">
-                <div class="search_bar">search</div>
+            <div class="player_search_bar_container">
+                <div class="player_search_bar_container">
+                    <input type="text" name="player_search" class="player_search_bar uppercase" placeholder="SEARCH">
+                </div>
             </div>
-            
-            
         </div>
-        <div class="card_list_container"></div>
+        <div class="card_list_container">
+            <div class="card_grid">
+                <div class="card_container">
+                    <div class="card">
+                        <div class="content">
+                            <div class="card_front">
+                                <div class="inner_card">
+                                    <div class="card_background_container">
+                                        <image src="/court.jpg" class="background_image"></image>
+                                    </div>
+                                    <div class="card_header">
+                                        <div class="card_name_container">
+                                            <div class="card_name">
+                                                <h4>Lebron James</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card_team_container">
+                                            <div class="card_team">
+                                                <image src="lakerslogo.png" class="team_logo"></image>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card_image_container">
+                                        
+                                        <div class="card_player_container">
+                                            <image src="/lebron.png" class="player_image"></image>
+                                        </div>
+                                        <div class="card_stats_container">
+                                            <div class="card_stats">
+                                                <div class="card_stats_title"><h5>PPG</h5></div>
+                                                <div class="card_stats_value"><h4>25.5</h4></div>
+                                            </div>
+                                            <div class="card_stats">
+                                                <div class="card_stats_title"><h5>PPG</h5></div>
+                                                <div class="card_stats_value"><h4>25.5</h4></div>
+                                            </div>
+                                            <div class="card_stats">
+                                                <div class="card_stats_title"><h5>PPG</h5></div>
+                                                <div class="card_stats_value"><h4>25.5</h4></div>
+                                            </div>
+                                            <div class="card_stats">
+                                                <div class="card_stats_title"><h5>PPG</h5></div>
+                                                <div class="card_stats_value"><h4>25.5</h4></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card_body">
+                                        <div class="card_body_row">
+                                            <div class="card_info">
+                                                <div class="card_info_title"><h5>Birthdate</h5></div>
+                                                <div class="card_info_value"><h4>12/30/84</h4></div>
+                                            </div>
+                                            <div class="card_info">
+                                                <div class="card_info_title"><h5>Age</h5></div>
+                                                <div class="card_info_value"><h4>39 yrs</h4></div>
+                                            </div>
+                                            <div class="card_info">
+                                                <div class="card_info_title"><h5>Experience</h5></div>
+                                                <div class="card_info_value"><h4>20 yrs</h4></div>
+                                            </div>
+                                        </div>
+                                        <div class="card_body_row">
+                                            <div class="card_info">
+                                                <div class="card_info_title"><h5>Height</h5></div>
+                                                <div class="card_info_value"><h4>6'9"</h4></div>
+                                            </div>
+                                            <div class="card_info">
+                                                <div class="card_info_title"><h5>Weight</h5></div>
+                                                <div class="card_info_value"><h4>250lb</h4></div>
+                                            </div>
+                                            <div class="card_info">
+                                                <div class="card_info_title"><h5>Country</h5></div>
+                                                <div class="card_info_value"><h4>USA</h4></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card_back">
+                                <image src="card_back.png" class="card_back_img"></image>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card_container"></div>
+                <div class="card_container"></div>
+                <div class="card_container"></div>
+                
+            </div>
+        </div>
     </div>
     
   </body>
-  <script src="/static/js/dashboard.js"></script>
+  <script src="/main.js"></script>
 </html>

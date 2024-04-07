@@ -14,9 +14,11 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 
 	session := uadmin.IsAuthenticated(r)
 
-	switch path {
-	case "login":
+	if session == nil {
 		LoginHandler(w, r)
+	}
+
+	switch path {
 	case "nba_dashboard":
 		DashboardHandler(w, r, session)
 	case "logout":

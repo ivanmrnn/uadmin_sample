@@ -7,9 +7,7 @@ import (
 type Teams struct {
 	uadmin.Model
 	Name  string
-	PPG  int
-	RPG int
-	APG int
-	Founded string
-	City string
+	Logo string `uadmin:"image"`
+	PrimaryTheme string
+	SecondaryTheme string
 }
