@@ -346,7 +346,6 @@ button {
 .profile {
     display: flex;
     justify-content: end;
-    width: 370px;
     height: 100%;
 }
 
@@ -365,13 +364,7 @@ button {
     border: 3px solid #552583;
 }
 
-.profile_photo:hover{
-    width: 50px;
-    filter: brightness(70%);
-}
-
 .username {
-    width: 290px;
     height: 100%;
     padding: 6px 1rem;
     text-align: end;

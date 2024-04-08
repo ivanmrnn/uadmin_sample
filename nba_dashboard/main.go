@@ -11,7 +11,7 @@ import (
 func main() {
 	uadmin.Register(
 		models.Players{},
-		models.Teams{},
+		models.Team{},
 	)
 	uadmin.RootURL = "/admin/"
 	uadmin.SiteName = "NBA Dashboard"

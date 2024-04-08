@@ -15,7 +15,7 @@
                 <div class="title">
                     <div class="title_div">
                         <div class="logo">
-                            <image src="/nbalogo.png" class="website_logo_img"></image>
+                            <image src="/static/images/nbalogo.png" class="website_logo_img"></image>
                         </div>
                         <div class="logo_title">
                             <h1>NBA</h1>
@@ -99,14 +99,14 @@
             <div class="profile">
                 <div class="username"><h2>{{.User}}</h2></div>
                 <div class="profile_photo_container">
-                    <image class="profile_photo" src="lebron.png"></image>
+                    <image class="profile_photo" src="{{.ProfilePhoto}}"></image>
                 </div>
                 <div class="logout_button_container">
-                    <a href="/nba_dashboard/logout" type="button">
-                        <button class="logout_button" >
-                            <image src="logout.png" class="logout_button_img"></image>
+                    <form method="GET" action="/logout/">
+                        <button class="logout_button" type="submit">
+                            <image src="/static/images/logout.png" class="logout_button_img"></image>
                         </button>
-                    </a>
+                    </form>
                 </div>
             </div>
         </div>
@@ -131,14 +131,14 @@
             </div>
         </div>
         <div class="card_list_container">
-            <div class="card_grid">
-                <div class="card_container">
+            <div class="card_grid" id="cardGrid">
+                <!-- <div class="card_container">
                     <div class="card">
                         <div class="content">
                             <div class="card_front">
                                 <div class="inner_card">
                                     <div class="card_background_container">
-                                        <image src="/court.jpg" class="background_image"></image>
+                                        <image src="/static/images/court.jpg" class="background_image"></image>
                                     </div>
                                     <div class="card_header">
                                         <div class="card_name_container">
@@ -209,19 +209,19 @@
                                 </div>
                             </div>
                             <div class="card_back">
-                                <image src="card_back.png" class="card_back_img"></image>
+                                <image src="/static/images/card_back.png" class="card_back_img"></image>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
+                <!-- <div class="card_container"></div>
                 <div class="card_container"></div>
-                <div class="card_container"></div>
-                <div class="card_container"></div>
+                <div class="card_container"></div> -->
                 
             </div>
         </div>
     </div>
     
   </body>
-  <script src="/main.js"></script>
+  <script src="/static/js/dashboard.js"></script>
 </html>

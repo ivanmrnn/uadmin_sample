@@ -29,6 +29,13 @@
       "err_msg": {},
       "Choices": {}
     },
+    "Logo": {
+      "display_name": "Logo",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
     "Name": {
       "display_name": "Name",
       "help": "",
@@ -43,8 +50,22 @@
       "err_msg": {},
       "Choices": {}
     },
+    "PrimaryTheme": {
+      "display_name": "Primary Theme",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
     "RPG": {
       "display_name": "RPG",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
+    "SecondaryTheme": {
+      "display_name": "Secondary Theme",
       "help": "",
       "pattern_msg": "",
       "err_msg": {},
