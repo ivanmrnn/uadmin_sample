@@ -201,6 +201,7 @@ button {
     height: 530px;
     background: #FDB927;
     padding: 1rem;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .team_search_bar {
@@ -213,18 +214,20 @@ button {
 }
 
 .team_search_bar::placeholder {
-    color: #FDB927;
+    color: white;
 }
 
 .team_search_bar:focus {
     outline: none;
-    color: #FDB927;
+    color: white;
 }
+
 
 .team_list {
     height: 435px;
     width: 100%;
     color: white;
+    overflow-y:scroll;
 }
 
 .team_container {
@@ -263,13 +266,13 @@ button {
 
 /* dashboard */
 
-.dashboard {
+#dashboard {
     width: 100%;
     position: relative;
     min-height: 100vh; 
 }
 
-.dashboard::before {
+#dashboard::before {
     content: "";
     position: absolute;
     top: 0;
@@ -499,12 +502,12 @@ button {
 }
 
 .player_search_bar::placeholder {
-    color: #FDB927;
+    color: white;
 }
 
 .player_search_bar:focus {
     outline: none;
-    color: #FDB927;
+    color: white;
 }
 
 .card_list_container {
@@ -615,17 +618,16 @@ transition: transform 0.5s;
     font-weight: bolder;
 }
 
-.card_name:before {
-    content: '';
+
+.triangle {
     position: absolute;
-    right: 0;
+    right: -20px;
     top: 0;
     width: 0;
     height: 0;
     border-style: solid;
     border-width: 0 0 30px 20px;
-    border-color: transparent #FDB927 transparent;
-    transform: translate(100%);
+    border-color: transparent white transparent;
 }
 
 .card_team_container {

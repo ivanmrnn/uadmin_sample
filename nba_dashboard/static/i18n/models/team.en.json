@@ -1,6 +1,13 @@
 {
   "display_name": "Team",
   "fields": {
+    "Division": {
+      "display_name": "Division",
+      "help": "",
+      "pattern_msg": "",
+      "err_msg": {},
+      "Choices": {}
+    },
     "ID": {
       "display_name": "ID",
       "help": "",

@@ -8,6 +8,7 @@ type Team struct {
 	uadmin.Model
 	Name  string
 	Logo string `uadmin:"image"`
+	Division string
 	Primary string
 	Secondary string
 }

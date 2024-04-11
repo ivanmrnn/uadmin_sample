@@ -15,6 +15,7 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 	session := uadmin.IsAuthenticated(r)
 
 
+
 	switch path {
 	case "login":
 		LoginHandler(w, r)
